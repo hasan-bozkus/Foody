@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Foody.BusinnessLayer.Concrete
 {
-    public class AboutManager : GenericManager<About>, IAboutService
+    public class FeatureManager : GenericManager<Feature>, IFeatureService
     {
-        public AboutManager(IGenericDal<About> genericDal) : base(genericDal)
+        public FeatureManager(IGenericDal<Feature> genericDal) : base(genericDal)
         {
         }
     }

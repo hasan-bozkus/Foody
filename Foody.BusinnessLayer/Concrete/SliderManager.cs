@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Foody.BusinnessLayer.Concrete
 {
-    public class AboutManager : GenericManager<About>, IAboutService
+    public class SliderManager : GenericManager<Slider>, ISliderService
     {
-        public AboutManager(IGenericDal<About> genericDal) : base(genericDal)
+        public SliderManager(IGenericDal<Slider> genericDal) : base(genericDal)
         {
         }
     }
