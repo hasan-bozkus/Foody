@@ -15,6 +15,11 @@ namespace Foody.DataAccessLayer.Context
             optionsBuilder.UseSqlServer("Server=DESKTOP-3JI56T6\\SQLEXPRESS; initial catalog=FoodyProject; integrated security=true");
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
+
         public DbSet<Category> Categories { get; set; }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Address> Addresses { get; set; }

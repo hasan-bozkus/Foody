@@ -1,5 +1,6 @@
 ﻿using Foody.BusinnessLayer.Abstract;
 using Foody.DataAccessLayer.Abstract;
+using Foody.DataAccessLayer.Repositories;
 using Foody.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -9,10 +10,38 @@ using System.Threading.Tasks;
 
 namespace Foody.BusinnessLayer.Concrete
 {
-    public class FeatureManager : GenericManager<Feature>, IFeatureService
+    public class FeatureManager : IFeatureService
     {
-        public FeatureManager(IGenericDal<Feature> genericDal) : base(genericDal)
+        private readonly IFeatureDal _featureDal;
+
+        public FeatureManager(IFeatureDal featureDal)
         {
+            _featureDal = featureDal;
+        }
+
+        public void TDelete(int id)
+        {
+            _featureDal.Delete(id);
+        }
+
+        public List<Feature> TGetAll()
+        {
+            return _featureDal.GetAll();
+        }
+
+        public Feature TGetById(int id)
+        {
+            return _featureDal.GetById(id);
+        }
+
+        public void TInsert(Feature entity)
+        {
+            _featureDal.Insert(entity);
+        }
+
+        public void TUpdate(Feature entity)
+        {
+            _featureDal.Update(entity);
         }
     }
 }
