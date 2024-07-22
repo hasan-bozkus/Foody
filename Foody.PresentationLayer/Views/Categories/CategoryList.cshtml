@@ -1,12 +1,12 @@
-﻿@* @model List<Foody.EntityLayer.Concrete.Category>
- *@
+﻿ @model List<Foody.EntityLayer.Concrete.Category>
 
 @{
     ViewData["Title"] = "CategoryList";
     Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
 }
 
- 
+
 
 <div class="container">
     <div class="page-inner">
@@ -43,34 +43,31 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
+                                    <th scope="col">Category Name</th>
+                                    <th scope="col">Category Status</th>
+                                    <th scope="col">Delete</th>
+                                    <th scope="col">Update</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@@mdo</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@@fat</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td colspan="2">Larry the Bird</td>
-                                    <td>@@twitter</td>
-                                </tr>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+
+                                    <tr>
+                                        <td>@count</td>
+                                        <td>@item.CategoryName</td>
+                                        <td>@item.CategoryStatus</td>
+                                        <td><a href="/Categories/DeleteCategory" class="btn btn-danger">Delete</a></td>
+                                        <td><a href="/Categories/UpdateCategory" class="btn btn-success">Update</a></td>
+                                    </tr>
+                                }
                             </tbody>
                         </table>
+                        <a href="/Categories/CreateCategory" class="btn btn-primary"> Add New Category</a>
                     </div>
                 </div>
-               
+
             </div>
         </div>
     </div>
