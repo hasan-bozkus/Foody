@@ -18,5 +18,17 @@ namespace Foody.PresentationLayer.Controllers
             var values = _categoryService.TGetAll();
             return View(values);
         }
+
+        [HttpGet]
+        public IActionResult CreateCategory()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateCategory()
+        {
+            return View();
+        }
     }
 }
