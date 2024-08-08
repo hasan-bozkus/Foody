@@ -1,11 +1,9 @@
-﻿ @model List<Foody.EntityLayer.Concrete.Category>
-
+﻿@model List<Product>
 @{
-    ViewData["Title"] = "CategoryList";
+    ViewData["Title"] = "ProductList";
     Layout = "~/Views/AdminLayout/Index.cshtml";
     int count = 0;
 }
-
 
 
 <div class="container">
@@ -43,8 +41,10 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Category Name</th>
-                                    <th scope="col">Category Status</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Stock</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Category Id</th>
                                     <th scope="col">Delete</th>
                                     <th scope="col">Update</th>
                                 </tr>
@@ -56,15 +56,17 @@
 
                                     <tr>
                                         <td>@count</td>
-                                        <td>@item.CategoryName</td>
-                                        <td>@item.CategoryStatus</td>
-                                        <td><a href="/Categories/DeleteCategory/@item.CategoryId" class="btn btn-danger">Delete</a></td>
-                                        <td><a href="/Categories/UpdateCategory/@item.CategoryId" class="btn btn-success">Update</a></td>
+                                        <td>@item.ProductName</td>
+                                        <td>@item.StockCount</td>
+                                        <td>@item.Price</td>
+                                        <td>@item.CategoryId</td>
+                                        <td><a href="/Products/DeleteProduct/@item.ProductId" class="btn btn-danger">Delete</a></td>
+                                        <td><a href="/Products/UpdateProduct/@item.ProductId" class="btn btn-success">Update</a></td>
                                     </tr>
                                 }
                             </tbody>
                         </table>
-                        <a href="/Categories/CreateCategory" class="btn btn-primary"> Add New Category</a>
+                        <a href="/Products/CreateProduct" class="btn btn-primary"> Add New Product</a>
                     </div>
                 </div>
 
@@ -72,4 +74,5 @@
         </div>
     </div>
 </div>
+
 

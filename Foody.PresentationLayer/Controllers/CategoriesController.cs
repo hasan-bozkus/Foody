@@ -1,4 +1,5 @@
 ﻿using Foody.BusinnessLayer.Abstract;
+using Foody.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Foody.PresentationLayer.Controllers
@@ -26,9 +27,32 @@ namespace Foody.PresentationLayer.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateCategory()
+        public IActionResult CreateCategory(Category category)
         {
-            return View();
+            category.CategoryStatus = true;
+            _categoryService.TInsert(category);
+            return RedirectToAction("CategoryList");
+        }
+
+        public IActionResult DeleteCategory(int id)
+        {
+            _categoryService.TDelete(id);
+            return RedirectToAction("CategoryList");
+        }
+
+        [HttpGet]
+        public IActionResult UpdateCategory(int id)
+        {
+            var result = _categoryService.TGetById(id);
+            return View(result);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateCategory(Category category)
+        {
+            category.CategoryStatus = true;
+            _categoryService.TUpdate(category);
+            return RedirectToAction("CategoryList");
         }
     }
 }

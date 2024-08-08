@@ -10,8 +10,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<FoodyContext>();
+
 builder.Services.AddScoped<ICategoryDal, EFCategoryDal>();
 builder.Services.AddScoped<ICategoryService, CategoryManager>();
+
+
+builder.Services.AddScoped<IProductDal, EFProductDal>();
+builder.Services.AddScoped<IProductService, ProductManager>();
 
 
 var app = builder.Build();
