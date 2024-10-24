@@ -28,6 +28,10 @@ builder.Services.AddScoped<IAboutService, AboutManager>();
 builder.Services.AddScoped<ISliderDal, EFSliderDal>();
 builder.Services.AddScoped<ISliderService, SliderManager>();
 
+
+builder.Services.AddScoped<IAboutItemDal, EFAboutItemDal>();
+builder.Services.AddScoped<IAboutItemService, AboutItemManager>();
+
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 var app = builder.Build();
@@ -57,6 +61,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Default}/{action=Index}/{id?}");
 
 app.Run();
