@@ -24,6 +24,11 @@ namespace Foody.BusinnessLayer.Concrete
             _featureDal.Delete(id);
         }
 
+        public List<Feature> TFeatureListByStatusTrue()
+        {
+            return _featureDal.FeatureListByStatusTrue();
+        }
+
         public List<Feature> TGetAll()
         {
             return _featureDal.GetAll();

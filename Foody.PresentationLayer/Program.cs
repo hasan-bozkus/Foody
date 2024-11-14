@@ -16,21 +16,20 @@ builder.Services.AddDbContext<FoodyContext>();
 builder.Services.AddScoped<ICategoryDal, EFCategoryDal>();
 builder.Services.AddScoped<ICategoryService, CategoryManager>();
 
-
 builder.Services.AddScoped<IProductDal, EFProductDal>();
 builder.Services.AddScoped<IProductService, ProductManager>();
-
 
 builder.Services.AddScoped<IAboutDal, EFAboutDal>();
 builder.Services.AddScoped<IAboutService, AboutManager>();
 
-
 builder.Services.AddScoped<ISliderDal, EFSliderDal>();
 builder.Services.AddScoped<ISliderService, SliderManager>();
 
-
 builder.Services.AddScoped<IAboutItemDal, EFAboutItemDal>();
 builder.Services.AddScoped<IAboutItemService, AboutItemManager>();
+
+builder.Services.AddScoped<IFeatureDal, EFFeatureDal>();
+builder.Services.AddScoped<IFeatureService, FeatureManager>();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
