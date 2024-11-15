@@ -41,7 +41,12 @@ namespace Foody.BusinnessLayer.Concrete
 
         public List<Product> TProductListWithCategory()
         {
-           return _productDal.ProductListWithCategory();
+            return _productDal.ProductListWithCategory();
+        }
+
+        public List<Product> TProductListWithCategoryAntLast12Items()
+        {
+            return _productDal.ProductListWithCategoryAntLast12Items();
         }
 
         public void TUpdate(Product entity)

@@ -10,5 +10,7 @@ namespace Foody.BusinnessLayer.Abstract
     public interface IProductService : IGenericService<Product>
     {
         List<Product> TProductListWithCategory();
+        List<Product> TProductListWithCategoryAntLast12Items();
+
     }
 }
